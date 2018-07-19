@@ -1,2 +1,0 @@
-# angularjs
-coursera test
