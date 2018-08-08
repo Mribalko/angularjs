@@ -30,7 +30,7 @@
         searchBar.errorMessage = "";
        
         searchBar.search = function(searchTerm) {            
-            MenuSearchService.getMatchedMenuItems(searchTerm)
+            MenuSearchService.getMatchedMenuItems(searchTerm.toLowerCase())
             .then(result => {
                 searchBar.found = result;
                 searchBar.errorMessage = "";
@@ -61,11 +61,9 @@
                 method: 'GET',
                 url: (ApiUrl + "/menu_items.json")
             })
-            .then(response => {
-
-                
+            .then(response => {                
                 var found = response.data.menu_items
-                            .filter(item => item.description.indexOf(searchTerm) > 0)
+                            .filter(item => item.description.toLowerCase().indexOf(searchTerm) > 0)
                             .sort((a,b) => {
                                 const A = a.name.toUpperCase();
                                 const B = b.name.toUpperCase();
