@@ -2,7 +2,7 @@
 
 <div class="list-group-item " ng-repeat="item in items">
     <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{item.name}}</h5>
+        <h5 class="mb-1">{{item.short_name}} - {{item.name}}</h5>
         <button class="btn btn-outline-info btn-sm" ng-click="onRemove({index: $index});">Don't want this one!</button>
     </div>
     {{item.description}} 
