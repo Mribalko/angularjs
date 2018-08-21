@@ -1,0 +1,20 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+        <li class="breadcrumb-item active">Categories</li>
+    </ol>
+
+    <h3>Categories list</h3>
+
+    <div class="list-group w-100 mt-2">
+            
+        <div class="list-group-item" ng-repeat="item in $ctrl.items">
+            <a ui-sref="items({categoryId: item.short_name})">
+                <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{item.name}} ({{item.short_name}})</h5>
+                    </div>                   
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
