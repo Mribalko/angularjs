@@ -37,6 +37,28 @@
 }
 /* END HOME PAGE */
 
+/* Sign Up PAGE */
+.signup {
+  width: 400px;
+  margin: auto;
+}
+
+.input-group {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.input-group-addon {
+  width: 130px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.alert  {
+  padding: 4px;
+  margin-top: 3px;
+}
+
 /* MENU CATEGORIES PAGE */
 .category-tile {
   position: relative;
