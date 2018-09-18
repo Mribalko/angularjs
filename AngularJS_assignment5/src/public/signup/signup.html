@@ -8,14 +8,15 @@
                     ng-model="signupCtrl.info.favoriteDish"
                     ng-model-options="{ updateOn: 'blur' }" 
                     required 
-                    exist-menu-item>
+                    exist-menu-item
+                    autofocus>
         </div>
         <div class="alert alert-danger" ng-if="signupForm.favorite.$error.required && signupForm.favorite.$touched">Required field</div> 
         <div class="alert alert-danger" ng-if="signupForm.favorite.$error.existMenuItem">No such menu number exists</div> 
 
     <div class="input-group">        
         <span class="input-group-addon">First name</span>
-        <input class="form-control" name="firstName" type="text" ng-model="signupCtrl.info.firstName" minlength="3" required autofocus>                 
+        <input class="form-control" name="firstName" type="text" ng-model="signupCtrl.info.firstName" minlength="3" required>                 
     </div>
     <div class="alert alert-danger" ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">Required field</div> 
     <div class="alert alert-danger" ng-if="signupForm.firstName.$error.minlength && signupForm.firstName.$touched">Minimum length 3 characters</div> 
