@@ -6,12 +6,16 @@
 
     function MyinfoService() {
         var service = this;
-        var userInfo;
+        var userInfo = {
+            firstName: 'testname',
+            favoriteDish: 'A1'
+        };
+
         service.setUserInfo = function(user) {
             userInfo = user;
         }
 
-        service.getUserInfo = function() {
+        service.getUserInfo = function() {            
             return userInfo;
         }
     }

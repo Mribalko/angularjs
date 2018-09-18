@@ -13,13 +13,14 @@
             link: function(scope, elm, attrs, ctrl) {
                 ctrl.$asyncValidators.existMenuItem = function(modelValue, viewValue) {
                     
-                    if (ctrl.$isEmpty(modelValue)) {
+                    if (ctrl.$isEmpty(viewValue)) {
                         return $q.when();
                     }
-    
-                    return MenuService.checkMenuItem(modelValue);
+                       
+                    return MenuService.getMenuItem(viewValue);
     
                 }
+
             }
         }
     }

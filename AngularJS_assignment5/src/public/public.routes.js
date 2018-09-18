@@ -29,7 +29,21 @@ function routeConfig ($stateProvider) {
       url: '/myinfo',
       templateUrl: 'src/public/my-info/my-info.html',
       controller: 'MyinfoController',
-      controllerAs: 'myInfoCtrl'
+      controllerAs: 'myInfoCtrl',
+      resolve: {
+        userInfo: ['MyinfoService', function(MyinfoService) {
+          return MyinfoService.getUserInfo();
+        }],      
+        favoriteDishData: ['MenuService', 'userInfo', function(MenuService, userInfo) {
+          
+          if(userInfo.favoriteDish)
+            return MenuService.getMenuItem(userInfo.favoriteDish)
+            .then(menuItem => menuItem, error => error);
+          
+          return {};
+
+        }]
+      }
     })
     .state('public.menu', {
       url: '/menu',

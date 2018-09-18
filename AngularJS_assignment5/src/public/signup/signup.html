@@ -1,7 +1,18 @@
 
 <form class="signup" name="signupForm" novalidate>
     <h1 class="text-center">Newsletter sign up</h1>
-     
+        
+    <div class="input-group">        
+            <span class="input-group-addon">Favorite food</span>
+            <input class="form-control" name="favorite" type="text" placeholder="Short name code. For example L1" 
+                    ng-model="signupCtrl.info.favoriteDish"
+                    ng-model-options="{ updateOn: 'blur' }" 
+                    required 
+                    exist-menu-item>
+        </div>
+        <div class="alert alert-danger" ng-if="signupForm.favorite.$error.required && signupForm.favorite.$touched">Required field</div> 
+        <div class="alert alert-danger" ng-if="signupForm.favorite.$error.existMenuItem">No such menu number exists</div> 
+
     <div class="input-group">        
         <span class="input-group-addon">First name</span>
         <input class="form-control" name="firstName" type="text" ng-model="signupCtrl.info.firstName" minlength="3" required autofocus>                 
@@ -24,25 +35,14 @@
     
     <div class="input-group">        
         <span class="input-group-addon">Phone</span>
-        <input class="form-control" name="phone" type="number" placeholder="###-###" ng-model="signupCtrl.info.phone" required>
+        <input class="form-control" name="phone" type="number" ng-model="signupCtrl.info.phone" required>
     </div>
     <div class="alert alert-danger" ng-if="signupForm.phone.$error.required && signupForm.phone.$touched">Required field</div> 
     <div class="alert alert-danger" ng-if="signupForm.phone.$error.number && signupForm.phone.$touched">Not valid number</div>
 
-    <div class="input-group">        
-        <span class="input-group-addon">Favorite food</span>
-        <input class="form-control" name="favorite" type="text" placeholder="Short name code. For example L1" 
-                ng-model="signupCtrl.info.favoriteDish" 
-                required 
-                exist-menu-item>
-    </div>
-    <div class="alert alert-danger" ng-if="signupForm.favorite.$error.existMenuItem">No such menu number exists</div> 
-
     <div class="input-group">
-        <button class="btn btn-primary" ng-click="signupCtrl.submit()" ng-disabled="signupForm.$invalid">Sign Up</button>
+        <button class="btn btn-primary" ng-click="signupCtrl.submit()" ng-disabled="signupForm.favorite.$pending.existMenuItem || signupForm.$invalid">Sign Up</button>
     </div>
     <div class="alert alert-success" ng-if="signupCtrl.submitResult">Your information has been saved</div>
     
 </form>
-
-<menu-item menu-item="A1"></menu-item>
